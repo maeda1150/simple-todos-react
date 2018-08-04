@@ -9,9 +9,14 @@ class App extends React.Component {
     this.state = {
       todos: [],
     };
+    this.todosUpdater = this.todosUpdater.bind(this);
   }
 
   componentDidMount() {
+    this.todosUpdater();
+  }
+
+  todosUpdater() {
     index().then(response => this.setState({ todos: response }));
   }
 
