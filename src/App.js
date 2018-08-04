@@ -1,10 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { index } from './api';
 
-class App extends Component {
+class App extends React.Component {
   render() {
     return (
-      <div className="App">
-      <h1>Hello World</h1>
+      <div className="app">
+        <h1>Hello World</h1>
+        {/* onClick prop に index を実行する関数を渡す */}
+        {/* onClick に渡す関数のことをイベントハンドラと呼んだりします */}
+        <button onClick={() => index().then(json => console.log(json))}> {/* index 関数が返した json をコンソールに表示する */}
+          GET /todos
+        </button>
       </div>
     );
   }
