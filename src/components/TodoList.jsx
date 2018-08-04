@@ -1,20 +1,7 @@
 import React from 'react';
 import TodoItem from './TodoItem';
-import { index } from '../api';
 
 class TodoList extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      todos: []
-    }
-  }
-
-  componentDidMount() {
-    // Todos を取得して todos ステートにセットする
-    index().then(response => this.setState({ todos: response }));
-  }
-
   render() {
     return (
       <div>
@@ -28,7 +15,7 @@ class TodoList extends React.Component {
             </tr>
           </thead>
           <tbody>
-            {this.state.todos.map(todo => (
+            {this.props.todos.map(todo => (
               <TodoItem
                 id={todo.id}
                 title={todo.title}
