@@ -3,6 +3,8 @@ import TodoItem from './TodoItem';
 
 class TodoList extends React.Component {
   render() {
+    const todos = this.props.todos;
+    const todosUpdater = this.props.todosUpdater;
     return (
       <div>
         <h3>Todo List</h3>
@@ -15,12 +17,13 @@ class TodoList extends React.Component {
             </tr>
           </thead>
           <tbody>
-            {this.props.todos.map(todo => (
+            {todos.map(todo => (
               <TodoItem
                 id={todo.id}
                 title={todo.title}
                 text={todo.text}
                 created_at={todo.created_at}
+                todosUpdater={todosUpdater}
               />
             ))}
           </tbody>
