@@ -1,20 +1,27 @@
 import React from 'react';
 import TodoItem from './TodoItem';
 
-const todos = [
-    {
-      title: 'Todo1のタイトル',
-      text: 'Todo1のテキスト',
-      created_at: 'Todo1の作成日時',
-    },
-    {
-      title: 'Todo2のタイトル',
-      text: 'Todo2のテキスト',
-      created_at: 'Todo2の作成日時test',
-    },
-  ];
-
 class TodoList extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      todos: [
+        {
+          key: 1,
+          title: 'Todo1のタイトル',
+          text: 'Todo1のテキスト',
+          created_at: 'Todo1の作成日時',
+        },
+        {
+          key: 2,
+          title: 'Todo2のタイトル',
+          text: 'Todo2のテキスト',
+          created_at: 'Todo2の作成日時',
+        },
+      ]
+    }
+  }
+
   render() {
     return (
       <div>
@@ -28,8 +35,9 @@ class TodoList extends React.Component {
             </tr>
           </thead>
           <tbody>
-            {todos.map(todo => (
+            {this.state.todos.map(todo => (
               <TodoItem
+                key={todo.key}
                 title={todo.title}
                 text={todo.text}
                 created_at={todo.created_at}
