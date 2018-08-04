@@ -1,5 +1,5 @@
 import React from 'react';
-import { index, create } from './api';
+import { index, create, destroy } from './api';
 
 class App extends React.Component {
   render() {
@@ -13,6 +13,11 @@ class App extends React.Component {
         </button>
         <button onClick={() => create('first todo', 'do it').then(json => console.log(json))}>
           POST /todos
+        </button>
+        <button
+          onClick={() => destroy('5d057940-c4cc-48f7-aa6b-f7a508b9f9d4').then(json => console.log(json))}
+        >
+          DELETE /todos
         </button>
       </div>
     );

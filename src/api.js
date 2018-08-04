@@ -19,3 +19,11 @@ export const create = (
     },
     body: JSON.stringify({ text, title }), // HTTP ボディに JSON を文字列化したものを指定
   }).then(response => response.json()); // レスポンスを JSON として読み込む
+
+// `DELETE /todos/:id` をリクエストする関数を用意する
+export const destroy = (
+  todoId, // 削除する todo の id を引数で受け取る
+) =>
+  fetch(`${ENDPOINT}/todos/${todoId}`, {
+    method: 'DELETE',
+  }).then(response => response.json());
